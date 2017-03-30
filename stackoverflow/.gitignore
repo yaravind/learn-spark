@@ -1,0 +1,29 @@
+*.class
+
+# Maven
+target
+
+#SBT
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# IntelliJ IDEA
+.idea
+*.iml
+/connect-jenkins-source-local.properties
+/log.txt
