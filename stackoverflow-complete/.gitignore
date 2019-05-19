@@ -44,3 +44,4 @@ lib/
 *.iml
 /.classpath
 /.project
+/.settings
