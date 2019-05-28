@@ -1,6 +1,6 @@
 # Stackoverflow Analytics with Spark
 
-[Performance Tuning](./docs/PerfTuning)
+[Performance Tuning](../blob/master/stackoverflow-complete/docs/PerfTuning.md)
 
 ## File Metadata
 
@@ -8,14 +8,16 @@ All timestamps are UTC, default format: `yyyy-MM-dd hh:mm:ss` (stored with milli
 
 ### HDFS
 
-|File|Size|HDFS Blocks|Block size (approx.)|
-|----|-------|-----|---------|
-|Posts.xml|70 GB|527| 134 MB |
-|Users.xml|3 GB | 25| 129 MB |
-|Tags.xml|5 MB |  1|    5 MB   |
-|Votes.xml|16.4 GB| 123| 133 MB|
-|Comments.xml|17.7 GB| 142| 134 MB|
-|PostLinks.xml|0.7 GB| 6| 116 MB|
+|File|Size|HDFS Blocks|Block size (approx.)|Total count |
+|----|-------|-----|---------|-------|
+|Posts.xml|70 GB|527| 134 MB |43,872,992|
+|Users.xml|3 GB | 25| 129 MB |10,097,978|
+|Tags.xml|5 MB |  1|    5 MB   |54,464|
+|Votes.xml|16.4 GB| 123| 133 MB|167,002,406|
+|Comments.xml|17.7 GB| 142| 134 MB|71,968,800|
+|PostLinks.xml|0.7 GB| 6| 116 MB|5,696,049|
+
+**Total posts.join(users) = 43,384,834 (i.e. 43,872,992 - 43,384,834 = 488,158)**
 
 ### Posts.xml
 
@@ -320,17 +322,6 @@ Count of questions posted grouped by tags
 |google-maps        |59690  |
 |uitableview        |59060  |
 |web-services       |58936  |
-
-
-**Total users: 10,097,978**
-
-**Total posts.join(users) = 43,384,834 (i.e. 43,872,992 - 43,384,834 = 488,158)**
-
-**Total Tags: 54,464**
-
-**Total Votes: 167,002,406**
-
-**Total Comments: **
 
 
 ## Reference
