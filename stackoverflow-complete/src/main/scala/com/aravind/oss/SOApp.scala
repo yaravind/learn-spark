@@ -3,17 +3,14 @@ package com.aravind.oss
 import org.apache.spark.sql.SparkSession
 
 object SOApp extends App with Logging {
-  logInfo("""Hello World!""")
 
-  // For implicit conversions like converting RDDs to DataFrames
-  import spark.implicits._
+  logInfo("""Hello World!""")
 
   val spark = SparkSession
     .builder()
     .appName("Stackoverflow App")
     .master("local[*]")
     .getOrCreate()
-
 
   val df = spark.read.json("src/main/resources/people.json")
 
@@ -30,7 +27,11 @@ object SOApp extends App with Logging {
   // Print the schema in a tree format
   df.printSchema()
 
+  // For implicit conversions like converting RDDs to DataFrames
+  import spark.implicits._
+
   // Select only the "name" column
+  logInfo("""Select only the "name" column""")
   df.select("name").show()
 
   // Select everybody, but increment the age by 1
