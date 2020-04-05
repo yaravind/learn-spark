@@ -26,6 +26,7 @@ object WordCountRddAppV2 extends App with Logging {
   }
 
   def toWords(lines: RDD[String]): RDD[String] = {
+    logInfo("splitting into words")
     //matches a space, a tab, a carriage return, a line feed, or a form feed
     val whitespaceRegex = "[\\s]"
 
