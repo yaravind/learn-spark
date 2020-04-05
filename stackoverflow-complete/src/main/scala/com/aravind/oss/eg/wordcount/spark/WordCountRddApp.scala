@@ -24,7 +24,7 @@ object WordCountRddApp extends App with Logging {
   logInfo("Version 1: Layman's word count")
   var wordsV1 = words
     .map(word => (word, 1))
-    .reduceByKey(_ + _)
+    .reduceByKey { case (x, y) => x + y }
 
   wordsV1.foreach(println)
   var count = wordsV1.count
@@ -34,7 +34,7 @@ object WordCountRddApp extends App with Logging {
   val wordsV2 = words
     .filter(word => !word.isEmpty) //filter empty strings
     .map(word => (word, 1))
-    .reduceByKey(_ + _)
+    .reduceByKey { case (x, y) => x + y }
   wordsV2.foreach(println)
   count = wordsV2.count
   logInfo("Version 2: Word count = " + count)
