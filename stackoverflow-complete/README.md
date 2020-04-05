@@ -1,6 +1,6 @@
 # Stackoverflow Analytics with Spark
 
-[Performance Tuning](../blob/master/stackoverflow-complete/docs/PerfTuning.md)
+[Performance Tuning](../stackoverflow-complete/docs/PerfTuning.md)
 
 ## File Metadata
 

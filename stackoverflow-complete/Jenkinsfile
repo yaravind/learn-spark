@@ -1,6 +1,0 @@
-#!/usr/bin/env groovy
-@Library("ApolloPipelineLibrary") _
-apollo_CI_CD {
-    projectName = "Spark-Maven-Project"
-    serverDomain = "Not Applicable"
-}
