@@ -1,34 +1,43 @@
 package com.aravind.oss.eg.wordcount.spark
 
 import com.aravind.oss.Logging
-import com.aravind.oss.SOApp.spark
+import WordCountUtil._
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 object WordCountDFApp extends App with Logging {
   logInfo("WordCount with Dataframe API")
 
-  val spark = SparkSession.builder()
-    .appName("WordCountDFApp")
-    .master("local[*]").getOrCreate()
+  val paths = getPaths(args)
+  val cluster = getClusterCfg(args)
+
+  if (paths.size > 1) {
+    logInfo("More than one file to process")
+  }
+  logInfo("Path(s): " + paths)
+  logInfo("Cluster: " + cluster)
+
+  val spark = getSparkSession("WordCountDFApp", cluster)
 
   val linesDf: DataFrame = spark.read
-    .textFile("src/main/resources/wordcount/test.txt")
+    .textFile(paths: _*)
     .toDF("line") //Dataset[Row]
-  linesDf.show(5)
-
-  val whitespaceRegex = "[\\s]"
-
-  // For implicit conversions like converting RDDs to DataFrames
+  logInfo("DataFrame before splitting line")
+  linesDf.show(false)
 
   import spark.implicits._
   import org.apache.spark.sql.functions._
 
   val wordsDf = linesDf
-    .select($"line", explode(split($"line", whitespaceRegex)).as("word"))
-  wordsDf.show()
+    .select($"line",
+      explode(split($"line", WhitespaceRegex)).as("word"))
+  logInfo("Inferred schema")
+  wordsDf.printSchema()
+  logInfo("DataFrame after splitting the line into words")
+  wordsDf.show(false)
 
   wordsDf.filter($"word" =!= "")
     .groupBy(lower($"word"))
     .count()
-    .show()
+    //.explain()
+    .show(false)
 }

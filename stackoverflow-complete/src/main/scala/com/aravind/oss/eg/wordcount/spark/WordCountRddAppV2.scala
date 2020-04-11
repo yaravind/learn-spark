@@ -2,17 +2,25 @@ package com.aravind.oss.eg.wordcount.spark
 
 import com.aravind.oss.Logging
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import WordCountUtil._
 
 object WordCountRddAppV2 extends App with Logging {
   logInfo("WordCount with RDD API")
 
-  val spark = SparkSession.builder()
-    .appName("WordCountRddApp")
-    .master("local[*]").getOrCreate()
+  val paths = getPaths(args)
+  val cluster = getClusterCfg(args)
 
+  if (paths.size > 1) {
+    logInfo("More than one file to process")
+  }
+  logInfo("Path(s): " + paths)
+  logInfo("Cluster: " + cluster)
+
+  val spark = getSparkSession("WordCountRddAppV2", cluster)
+
+  //_* creates a var arg from Seq. Refer: https://scastie.scala-lang.org/stefanobaghino/imccZJl0QDCQupLtrPm2Og
   val lines: RDD[String] = spark.read
-    .textFile("src/main/resources/wordcount/test.txt") //Dataset[String]
+    .textFile(paths: _*) //Dataset[String]
     .rdd
 
   val wordCounts = countWords(lines)
@@ -27,11 +35,9 @@ object WordCountRddAppV2 extends App with Logging {
 
   def toWords(lines: RDD[String]): RDD[String] = {
     logInfo("splitting into words")
-    //matches a space, a tab, a carriage return, a line feed, or a form feed
-    val whitespaceRegex = "[\\s]"
 
     lines
-      .map(line => line.split(whitespaceRegex)) //Array[Array[String]]
+      .map(line => line.split(WhitespaceRegex)) //Array[Array[String]]
       .flatMap(wordArray => wordArray)
   }
 
