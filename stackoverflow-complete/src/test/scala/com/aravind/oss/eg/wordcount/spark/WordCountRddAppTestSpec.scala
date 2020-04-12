@@ -1,7 +1,7 @@
 package com.aravind.oss.eg.wordcount.spark
 
+import com.aravind.oss.BaseSpec
 import com.holdenkarau.spark.testing.SharedSparkContext
-import com.ncr.eda.apollo.BaseSpec
 import org.apache.spark.rdd.RDD
 
 class WordCountRddAppTestSpec extends BaseSpec with SharedSparkContext {

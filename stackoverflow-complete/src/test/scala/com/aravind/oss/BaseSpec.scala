@@ -1,4 +1,4 @@
-package com.ncr.eda.apollo
+package com.aravind.oss
 
 import org.scalatest._
 
