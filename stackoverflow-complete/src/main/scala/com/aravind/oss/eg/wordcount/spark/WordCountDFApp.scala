@@ -39,8 +39,8 @@ object WordCountDFApp extends App with Logging {
 
   def toWords(linesDf: DataFrame) = {
     linesDf
-      .select($"line",
-        explode(split($"line", WhitespaceRegex)).as("word"))
+      .select(linesDf("line"),
+        explode(split(linesDf("line"), WhitespaceRegex)).as("word"))
   }
 
   def countWords(wordsDf: DataFrame): DataFrame = {
