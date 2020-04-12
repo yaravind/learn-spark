@@ -27,17 +27,25 @@ object WordCountDFApp extends App with Logging {
   import spark.implicits._
   import org.apache.spark.sql.functions._
 
-  val wordsDf = linesDf
-    .select($"line",
-      explode(split($"line", WhitespaceRegex)).as("word"))
+  val wordsDf = toWords(linesDf)
+
   logInfo("Inferred schema")
   wordsDf.printSchema()
+
   logInfo("DataFrame after splitting the line into words")
   wordsDf.show(false)
 
-  wordsDf.filter($"word" =!= "")
-    .groupBy(lower($"word"))
-    .count()
-    //.explain()
-    .show(false)
+  countWords(wordsDf).show(false)
+
+  def toWords(linesDf: DataFrame) = {
+    linesDf
+      .select($"line",
+        explode(split($"line", WhitespaceRegex)).as("word"))
+  }
+
+  def countWords(wordsDf: DataFrame): DataFrame = {
+    wordsDf.filter($"word" =!= "")
+      .groupBy(lower($"word"))
+      .count()
+  }
 }
