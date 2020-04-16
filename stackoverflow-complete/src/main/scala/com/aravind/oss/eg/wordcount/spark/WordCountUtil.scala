@@ -27,6 +27,6 @@ object WordCountUtil {
   }
 
   def getClusterCfg(args: Array[String]): String = {
-    if (!args.isEmpty && args(1) != null) args(1) else "local[*]"
+    if (!args.isEmpty && args.length > 1) args(1) else "local[*]"
   }
 }
