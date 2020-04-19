@@ -1,16 +1,8 @@
 package com.aravind.oss.eg.spark.wordcount
 
-import org.apache.spark.sql.SparkSession
-
 object WordCountUtil {
   //matches a space, a tab, a carriage return, a line feed, or a form feed
   val WhitespaceRegex = "[\\s]"
-
-  def getSparkSession(appName: String, clusterCfg: String): SparkSession = {
-    SparkSession.builder()
-      .appName(appName)
-      .master(clusterCfg).getOrCreate()
-  }
 
   def getPaths(args: Array[String]): Seq[String] = {
     val paths: Seq[String] = if (!args.isEmpty) {
@@ -24,9 +16,5 @@ object WordCountUtil {
     }
 
     paths
-  }
-
-  def getClusterCfg(args: Array[String]): String = {
-    if (!args.isEmpty && args.length > 1) args(1) else "local[*]"
   }
 }

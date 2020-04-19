@@ -1,7 +1,8 @@
 package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.Logging
-import com.aravind.oss.eg.spark.wordcount.WordCountUtil.{WhitespaceRegex, getClusterCfg, getPaths, getSparkSession}
+import com.aravind.oss.eg.spark.SparkAppUtil._
+import com.aravind.oss.eg.spark.wordcount.WordCountUtil.{WhitespaceRegex, getPaths}
 import org.apache.spark.sql.Dataset
 import org.apache.spark.sql.functions.{explode, split}
 
