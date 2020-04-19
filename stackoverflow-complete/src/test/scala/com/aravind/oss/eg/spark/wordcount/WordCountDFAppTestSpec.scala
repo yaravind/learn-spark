@@ -1,8 +1,8 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.SparkSessionTestWrapper
-import org.scalatest.FlatSpec
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
+import org.scalatest.FlatSpec
 
 /**
  * Better than using spark-testingbase library:

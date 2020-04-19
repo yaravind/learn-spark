@@ -1,7 +1,9 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.SparkSessionTestWrapper
+import com.aravind.oss.eg.spark.wordcount.WordCountDSApp.{Line, LineAndWord}
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
+import org.apache.spark.sql.Encoders
 import org.scalatest.FlatSpec
 
 /**
@@ -10,18 +12,17 @@ import org.scalatest.FlatSpec
  * 2. Shows differences clearly when test fails
  * 3. Convinience flag to ignore the order of data in DataFrame
  */
-class WordCountSQLAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer {
+class WordCountDSAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer {
 
   import spark.implicits._
 
-  "splitToWords" should "split the file into words" in {
+  "toWords" should "split the file into words" in {
     val sourceDf = Seq(
-      "one",
-      "two",
-      "",
-      "three Three"
-    ).toDF("line")
-    sourceDf.createOrReplaceTempView("lines_tbl")
+      ("one"),
+      ("two"),
+      (""),
+      ("three Three")
+    ).toDF("line").as[Line]
 
     val expectedDF = Seq(
       ("one", "one"),
@@ -29,10 +30,9 @@ class WordCountSQLAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("three Three", "three"),
       ("three Three", "Three"),
       ("", "")
-    ).toDF("line", "word")
+    ).toDF("line", "word").as[LineAndWord]
 
-    WordCountSQLApp.splitToWords(spark)
-    val actualDF = spark.table("words_tbl")
+    val actualDF = WordCountDSApp.toWords(sourceDf)
 
     assertSmallDatasetEquality(actualDF, expectedDF, orderedComparison = false)
   }
@@ -45,16 +45,16 @@ class WordCountSQLAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("three Three", "three"),
       ("three Three", "Three"),
       ("", "")
-    ).toDF("line", "word")
-    wordsDF.createOrReplaceTempView("words_tbl")
+    ).toDF("line", "word").as[LineAndWord]
 
+    val tupleEncoder = Encoders.tuple(Encoders.STRING, Encoders.LONG)
     val expectedDF = Seq(
       ("one", 1L),
       ("two", 1L),
       ("three", 2L)
-    ).toDF("lower(word)", "count")
+    ).toDF("value", "count(1)").as[(String, Long)]
 
-    val actualDF = WordCountSQLApp.countWords(spark)
+    val actualDF = WordCountDSApp.countWords(wordsDF)
 
     assertSmallDatasetEquality(actualDF, expectedDF, orderedComparison = false)
   }

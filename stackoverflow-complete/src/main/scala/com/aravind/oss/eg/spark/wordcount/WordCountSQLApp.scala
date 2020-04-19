@@ -1,7 +1,7 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.Logging
-import com.aravind.oss.eg.wordcount.spark.WordCountUtil._
+import com.aravind.oss.eg.spark.wordcount.WordCountUtil._
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object WordCountSQLApp extends App with Logging {

@@ -1,8 +1,8 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.Logging
+import com.aravind.oss.eg.spark.wordcount.WordCountUtil._
 import org.apache.spark.rdd.RDD
-import WordCountUtil._
 
 object WordCountRddApp extends App with Logging {
   logInfo("WordCount with RDD API")

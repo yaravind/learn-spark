@@ -1,4 +1,4 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.holdenkarau.spark.testing.DataFrameSuiteBase
 import org.scalatest.FlatSpec

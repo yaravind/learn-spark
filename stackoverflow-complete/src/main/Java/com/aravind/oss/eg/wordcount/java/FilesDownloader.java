@@ -42,7 +42,7 @@ import java.util.stream.Stream;
  */
 public class FilesDownloader {
 
-    public static final String FICTION_FILES_URL = "http://www.textfiles.com/etext/FICTION/";
+    public static final String FICTION_FILES_URL = "https://heather.miller.am/teaching/cs4240/spring2018/pdf/";
 
     public static void main(String[] args) {
         if (args.length != 2) {
@@ -61,7 +61,7 @@ public class FilesDownloader {
         Document doc = null;
 
         try {
-            doc = Jsoup.connect(FICTION_FILES_URL).get();
+            doc = Jsoup.connect(FICTION_FILES_URL).ignoreHttpErrors(true).get();
         } catch (IOException e) {
             System.err.println("Unable to connect to: " + FICTION_FILES_URL);
             e.printStackTrace();
@@ -184,4 +184,5 @@ public class FilesDownloader {
         }
         return result;
     }
+
 }

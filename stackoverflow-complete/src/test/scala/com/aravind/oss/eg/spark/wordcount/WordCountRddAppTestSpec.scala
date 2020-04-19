@@ -1,4 +1,4 @@
-package com.aravind.oss.eg.wordcount.spark
+package com.aravind.oss.eg.spark.wordcount
 
 import com.aravind.oss.BaseSpec
 import com.holdenkarau.spark.testing.SharedSparkContext
