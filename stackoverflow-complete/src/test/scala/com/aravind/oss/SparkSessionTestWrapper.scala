@@ -13,6 +13,7 @@ trait SparkSessionTestWrapper {
       .master("local")
       .appName("spark-fast-tests test session")
       .config("spark.sql.shuffle.partitions", "1")
+      .config("spark.sql.autoBroadcastJoinThreshold", -1)
       .getOrCreate()
   }
 }

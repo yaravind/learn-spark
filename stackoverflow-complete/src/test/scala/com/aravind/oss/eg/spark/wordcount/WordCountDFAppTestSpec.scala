@@ -1,7 +1,7 @@
 package com.aravind.oss.eg.spark.wordcount
 
-import com.aravind.oss.SparkSessionTestWrapper
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
+import com.holdenkarau.spark.testing.DataFrameSuiteBase
 import org.scalatest.FlatSpec
 
 /**
@@ -10,7 +10,7 @@ import org.scalatest.FlatSpec
  * 2. Shows differences clearly when test fails
  * 3. Convinience flag to ignore the order of data in DataFrame
  */
-class WordCountDFAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer {
+class WordCountDFAppTestSpec extends FlatSpec with DataFrameSuiteBase with DatasetComparer {
 
   import spark.implicits._
 

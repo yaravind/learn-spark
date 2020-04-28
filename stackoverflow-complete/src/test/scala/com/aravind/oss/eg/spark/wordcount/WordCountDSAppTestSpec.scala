@@ -1,7 +1,7 @@
 package com.aravind.oss.eg.spark.wordcount
 
-import com.aravind.oss.SparkSessionTestWrapper
 import com.aravind.oss.eg.spark.wordcount.WordCountDSApp.{Line, LineAndWord}
+import com.aravind.oss.{Logging, SparkSessionTestWrapper}
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
 import org.apache.spark.sql.Encoders
 import org.scalatest.FlatSpec
@@ -12,11 +12,13 @@ import org.scalatest.FlatSpec
  * 2. Shows differences clearly when test fails
  * 3. Convinience flag to ignore the order of data in DataFrame
  */
-class WordCountDSAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer {
+class WordCountDSAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer with Logging {
 
   import spark.implicits._
 
   "toWords" should "split the file into words" in {
+    logInfo("START isStopped: " + spark.sparkContext.isStopped)
+    logInfo("START isLocal: " + spark.sparkContext.isLocal)
     val sourceDf = Seq(
       ("one"),
       ("two"),
@@ -35,10 +37,13 @@ class WordCountDSAppTestSpec extends FlatSpec with SparkSessionTestWrapper with 
     val actualDF = WordCountDSApp.toWords(sourceDf)
 
     assertSmallDatasetEquality(actualDF, expectedDF, orderedComparison = false)
+    logInfo("END isStopped: " + spark.sparkContext.isStopped)
+    logInfo("END isLocal: " + spark.sparkContext.isLocal)
   }
 
   "countWords" should "return count of each word" in {
-
+    logInfo("START isStopped: " + spark.sparkContext.isStopped)
+    logInfo("START isLocal: " + spark.sparkContext.isLocal)
     val wordsDF = Seq(
       ("one", "one"),
       ("two", "two"),
@@ -57,5 +62,7 @@ class WordCountDSAppTestSpec extends FlatSpec with SparkSessionTestWrapper with 
     val actualDF = WordCountDSApp.countWords(wordsDF)
 
     assertSmallDatasetEquality(actualDF, expectedDF, orderedComparison = false)
+    logInfo("END isStopped: " + spark.sparkContext.isStopped)
+    logInfo("END isLocal: " + spark.sparkContext.isLocal)
   }
 }

@@ -305,6 +305,9 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
+                        <!--
+                        To use the ScalaTest Maven plugin, you need to disable SureFire and enable ScalaTest.
+                        -->
                         <skipTests>true</skipTests>
                     </configuration>
                 </plugin>
@@ -316,6 +319,7 @@
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                         <junitxml>.</junitxml>
                         <filereports>WDF TestSuite.txt</filereports>
+                        <forkMode>never</forkMode>
                     </configuration>
                     <executions>
                         <execution>
