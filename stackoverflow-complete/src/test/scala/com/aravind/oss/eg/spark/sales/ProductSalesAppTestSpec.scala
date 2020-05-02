@@ -2,6 +2,7 @@ package com.aravind.oss.eg.spark.sales
 
 import com.aravind.oss.{Logging, SparkSessionTestWrapper}
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
+import org.apache.spark.sql.Row
 import org.scalatest.FlatSpec
 
 class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with DatasetComparer with Logging {
@@ -29,7 +30,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
 
-    assert(ProductSalesApp.howManyProductsHaveBeenAoldAtLeastOnce(spark) == 0)
+    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 0)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 1" in {
@@ -44,7 +45,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "40", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenAoldAtLeastOnce(spark) == 1)
+    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 1)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 1 for products sold more tha once" in {
@@ -58,7 +59,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "40", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenAoldAtLeastOnce(spark) == 1)
+    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 1)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 3" in {
@@ -72,6 +73,29 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "2", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenAoldAtLeastOnce(spark) == 3)
+    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 3)
+  }
+
+  "duplicateSkewedData" should "scucceed" in {
+    import spark.implicits._
+
+    val input: Array[Row] = Seq("product_0", "product_1")
+      .toDF("product_id")
+      .collect()
+
+    val ReplicationFactor = 5
+
+    val replicatedProducts =
+      for {
+        _r <- input
+        _i <- 0 until ReplicationFactor
+      } yield (_r.getString(0), (_r.getString(0), _i.toString))
+
+    val a = replicatedProducts.map(tuple => tuple._1)
+    val l = replicatedProducts.map(tuple => tuple._2)
+
+    for (r <- a) println(r)
+    println()
+    for (r <- l) println(r)
   }
 }
