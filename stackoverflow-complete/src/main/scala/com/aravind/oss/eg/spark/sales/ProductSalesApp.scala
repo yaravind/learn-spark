@@ -3,30 +3,25 @@ package com.aravind.oss.eg.spark.sales
 import com.aravind.oss.Logging
 import com.aravind.oss.eg.spark.SparkAppUtil._
 import org.apache.spark.sql.{Row, SparkSession}
+import ProductSalesUtil._
 
 /** *
  * Solution for https://towardsdatascience.com/six-spark-exercises-to-rule-them-all-242445b24565
  */
 object ProductSalesApp extends App with Logging {
-  val SalesRoot = "/Users/o60774/Downloads/product-sales"
+
   val spark = getSparkSession("ProductSalesApp", getClusterCfg(args))
 
   logInfo("Meta info - Products")
-  val productDF = spark.read.parquet(SalesRoot + "/products_parquet/*.parquet")
-  productDF.createOrReplaceTempView("PRODUCTS")
-  productDF.printSchema()
+  val productDF = loadProducts()
   productDF.show(5)
 
   logInfo("Meta info - Sellers")
-  val sellerDF = spark.read.parquet(SalesRoot + "/sellers_parquet/*.parquet")
-  sellerDF.createOrReplaceTempView("SELLERS")
-  sellerDF.printSchema()
+  val sellerDF = loadSellers()
   sellerDF.show(5)
 
   logInfo("Meta info - Orders")
-  val orderDF = spark.read.parquet(SalesRoot + "/sales_parquet/*.parquet")
-  orderDF.createOrReplaceTempView("ORDERS")
-  orderDF.printSchema()
+  val orderDF = loadSales()
   orderDF.show(5)
 
   logInfo("Count - Products: " + productDF.count())
