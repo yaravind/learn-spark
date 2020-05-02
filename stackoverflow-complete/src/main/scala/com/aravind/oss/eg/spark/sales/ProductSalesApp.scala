@@ -2,8 +2,8 @@ package com.aravind.oss.eg.spark.sales
 
 import com.aravind.oss.Logging
 import com.aravind.oss.eg.spark.SparkAppUtil._
-import org.apache.spark.sql.{Row, SparkSession}
-import ProductSalesUtil._
+import com.aravind.oss.eg.spark.sales.ProductSalesUtil._
+import org.apache.spark.sql.Row
 
 /** *
  * Solution for https://towardsdatascience.com/six-spark-exercises-to-rule-them-all-242445b24565
@@ -27,88 +27,6 @@ object ProductSalesApp extends App with Logging {
   logInfo("Count - Products: " + productDF.count())
   logInfo("Count - Sellers: " + sellerDF.count())
   logInfo("Count - Orders: " + orderDF.count())
-
-  //--- Problem 1
-  logInfo("Q: How many products have been sold at least once?")
-  val count = howManyProductsHaveBeenSoldAtLeastOnce(spark)
-  logInfo("A (should be 993429): " + count)
-
-  //--- Problem 2
-  logInfo("Q: Which is the product contained in more orders?")
-  val product_id = whichIsTheProductContainedInMoreOrders(spark)
-  logInfo("A (should be product_id '0', which is sold 19000000 times): " + product_id)
-
-  def howManyProductsHaveBeenSoldAtLeastOnce(spark: SparkSession): Long = {
-    if (!spark.catalog.tableExists("PRODUCTS")) {
-      logError("Table PRODUCTS doesn't exist")
-      return -1
-    }
-    if (!spark.catalog.tableExists("ORDERS")) {
-      logError("Table ORDERS doesn't exist")
-      return -1
-    }
-    val withJoin =
-      """ SELECT distinct o.product_id
-        | FROM PRODUCTS p
-        | JOIN ORDERS o ON p.product_id = o.product_id
-        |""".stripMargin
-
-    val count = spark.sql(withJoin).count()
-
-    count
-  }
-
-  def whichIsTheProductContainedInMoreOrders(spark: SparkSession): String = {
-    if (!spark.catalog.tableExists("ORDERS")) {
-      logError("Table ORDERS doesn't exist")
-      return "";
-    }
-
-    val sqlText =
-      """ SELECT product_id, count(product_id) AS sold_cnt
-        | FROM orders
-        | GROUP BY product_id
-        | ORDER BY sold_cnt DESC
-        |""".stripMargin
-
-    val resDF = spark.sql(sqlText)
-    logInfo("Top 5 products sold: ")
-    resDF.show(5)
-    resDF.select(resDF("product_id")).take(1)(0).getAs[String](0)
-  }
-
-  //--- Problem 3
-  logInfo("Q: How many distinct products have been sold in each day?")
-  var sqlText =
-    """ SELECT date, count(DISTINCT product_id) as sold_cnt
-      | FROM orders
-      | GROUP BY date
-      | ORDER BY sold_cnt DESC
-      |""".stripMargin
-
-  spark.sql(sqlText).show(10)
-
-  //--Problem 4
-  logInfo("Q: What is the average revenue of the orders?")
-  /**
-   * total_revenue = sum(num_pieces_sold * unit_price)
-   * avg_revenue = total_revenue / orders_count
-   */
-  sqlText =
-    """ SELECT avg(p.price * o.num_pieces_sold) as total_revenue
-      | FROM orders o
-      | JOIN PRODUCTS p ON p.product_id = o.product_id
-      |""".stripMargin
-  val totalRevenue = spark.sql(sqlText).show(15)
-  /*.select("total_revenue")
-  .collect()(0) //first row
-  .getDouble(0)*/
-
-  /*logInfo("Total Revenue: " + totalRevenue)
-
-  val ordersCount = orderDF.count()
-
-  logInfo("A: " + (totalRevenue / ordersCount))*/
 
   //Problem 4 Step 1 - Check and select the skewed keys
 

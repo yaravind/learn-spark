@@ -30,7 +30,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
 
-    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 0)
+    assert(HowManyProductsHaveBeenSoldAtLeastOnceApp.run(spark) == 0)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 1" in {
@@ -45,7 +45,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "40", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 1)
+    assert(HowManyProductsHaveBeenSoldAtLeastOnceApp.run(spark) == 1)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 1 for products sold more tha once" in {
@@ -59,7 +59,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "40", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 1)
+    assert(HowManyProductsHaveBeenSoldAtLeastOnceApp.run(spark) == 1)
   }
 
   "howManyProductsHaveBeenSoldAtLeastOnce" should "return 3" in {
@@ -73,7 +73,7 @@ class ProductSalesAppTestSpec extends FlatSpec with SparkSessionTestWrapper with
       ("4", "2", "0", "2020-07-05", "56", "kyeibuumwlyhuwksx")
     ).toDF(orderCols: _*)
     orderDF.createOrReplaceTempView("ORDERS")
-    assert(ProductSalesApp.howManyProductsHaveBeenSoldAtLeastOnce(spark) == 3)
+    assert(HowManyProductsHaveBeenSoldAtLeastOnceApp.run(spark) == 3)
   }
 
   "duplicateSkewedData" should "scucceed" in {
