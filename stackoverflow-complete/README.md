@@ -1,5 +1,9 @@
 # Stackoverflow Analytics with Spark
 
+## References
+
+- http://hydronitrogen.com/apache-spark-shuffles-explained-in-depth.html
+
 [Performance Tuning](../stackoverflow-complete/docs/PerfTuning.md)
 
 ## File Metadata
