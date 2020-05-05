@@ -14,7 +14,7 @@ object WhatIsTheAverageRevenueOfTheOrdersApp extends App with Logging {
   val productDF = loadProducts()
 
   val result = run(spark)
-  result.show(15)
+  result.show()
 
   def run(spark: SparkSession): DataFrame = {
     /**
