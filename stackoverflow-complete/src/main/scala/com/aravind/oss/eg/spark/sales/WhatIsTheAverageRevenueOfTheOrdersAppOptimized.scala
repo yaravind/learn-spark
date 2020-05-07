@@ -21,45 +21,46 @@ object WhatIsTheAverageRevenueOfTheOrdersAppOptimized extends App with Logging {
   val orderDF = loadSales()
   val productDF = loadProducts()
 
-  //  val result = run(spark)
-  //  result.show(15)
-
-  val skewedSqlText =
-    """ SELECT product_id, count(product_id) AS cnt
-      | FROM orders
-      | GROUP BY product_id
-      | ORDER BY cnt DESC
-      |""".stripMargin
-
-  logInfo("Getting skewed id's from skewed table: ORDERS")
-  val skewedProducts: Array[Row] = spark.sql(skewedSqlText)
-    .limit(1) //only want 1 skewed product
-    .collect()
-
-  val skewedKeys: Array[String] = skewedProducts.map(r => r.getAs[String]("product_id"))
-
-  logInfo("Skewed keys")
-  skewedKeys.foreach(k => println("key: " + k))
-
-  logInfo("Original 'Unskewed' DataFrame with salted keys ")
-  val saltedProductsDF = replicateNonSkewedData(productDF, "product_id", skewedKeys, 50)(spark)
-  saltedProductsDF.createOrReplaceTempView("PRODUCTS_SALTED")
-  saltedProductsDF.show(5)
-
-  val saltedOrderDF = saltSkewedData(orderDF, "product_id", skewedKeys, 50)(spark)
-  saltedOrderDF.createOrReplaceTempView("ORDERS_SALTED")
-  saltedOrderDF.show(5)
-
   val result = run(spark)
   result.show()
 
   def run(spark: SparkSession): DataFrame = {
+    val skewedSqlText =
+      """ SELECT product_id, count(product_id) AS cnt
+        | FROM orders
+        | GROUP BY product_id
+        | ORDER BY cnt DESC
+        |""".stripMargin
+
+    logInfo("Getting skewed id's from skewed table: ORDERS")
+    val skewedProducts: Array[Row] = spark.sql(skewedSqlText)
+      .limit(1) //limit only to 1 skewed product as there is only one skewed product in this dataset
+      .collect()
+
+    val skewedKeys: Array[String] = skewedProducts.map(r => r.getAs[String]("product_id"))
+    logInfo("Skewed keys")
+    skewedKeys.foreach(k => logInfo("key: " + k))
+
+    val ReplicationFactor = 50
+    val skewedKeyColName = "product_id"
+
+    val saltedProductsDF = replicateNonSkewedData(productDF, skewedKeyColName, skewedKeys, ReplicationFactor)(spark)
+    saltedProductsDF.createOrReplaceTempView("PRODUCTS_SALTED")
+    logInfo("'Un-skewed' DataFrame with salted keys ")
+    saltedProductsDF.show(5)
+
+    val saltedOrderDF = saltSkewedData(orderDF, skewedKeyColName, skewedKeys, ReplicationFactor)(spark)
+    saltedOrderDF.createOrReplaceTempView("ORDERS_SALTED")
+    logInfo("'Skewed' DataFrame with salted keys ")
+    saltedOrderDF.show(5)
     /**
      * total_revenue = sum(num_pieces_sold * unit_price)
      * avg_revenue = total_revenue / orders_count
+     *
+     * Use the SALTED DataFrames registered
      */
     val sqlText =
-      """ SELECT avg(p.price * o.num_pieces_sold) as total_revenue
+      """ SELECT avg(p.price * o.num_pieces_sold) as avg_revenue
         | FROM orders_salted o
         | JOIN products_salted p ON p.salted_product_id = o.salted_key1
         |""".stripMargin

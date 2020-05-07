@@ -22,7 +22,7 @@ object WhatIsTheAverageRevenueOfTheOrdersApp extends App with Logging {
      * avg_revenue = total_revenue / orders_count
      */
     val sqlText =
-      """ SELECT avg(p.price * o.num_pieces_sold) as total_revenue
+      """ SELECT avg(p.price * o.num_pieces_sold) as avg_revenue
         | FROM orders o
         | JOIN PRODUCTS p ON p.product_id = o.product_id
         |""".stripMargin
