@@ -41,7 +41,7 @@ records of the same key should be co-located in the same partition)
 
 ##### Code
 
-`WhatIsTheAverageRevenueOfTheOrdersApp`
+[WhatIsTheAverageRevenueOfTheOrdersApp](../../src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersApp.scala)
 
 ##### Job - Summary View
 
@@ -78,8 +78,9 @@ records of the same key should be co-located in the same partition)
 ```
 ./bin/spark-shell --driver-memory 3G
 ```
+##### Code
 
-- `WhatIsTheAverageRevenueOfTheOrdersAppOptimized`
+[WhatIsTheAverageRevenueOfTheOrdersAppOptimized](../../src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersAppOptimized.scala)
 
 ##### SaltingWithReplicationFactor50
 
