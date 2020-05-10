@@ -4,7 +4,10 @@
 
 - http://hydronitrogen.com/apache-spark-shuffles-explained-in-depth.html
 
-[Performance Tuning](../stackoverflow-complete/docs/PerfTuning.md)
+1. [Data Skews](../stackoverflow-complete/docs/skew/DataSkews.md)
+2. [Performance Tuning](../stackoverflow-complete/docs/PerfTuning.md)
+3. [Task Serialization](../stackoverflow-complete/docs/serialize/Serialization.md)
+3. [Garbage Collection](../stackoverflow-complete/docs/garbage-collection/Gc.md)
 
 ## File Metadata
 
