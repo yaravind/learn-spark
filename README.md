@@ -1,10 +1,7 @@
-# Test Projects for Learning Spark
+# PBL (Project Based Learning) approach to learning Apache Spark
 
-## Assignments from Courses
-
-| Course | Assignments |
+| Project | What you will learn? |
 | ------ | ----------- |
-| Big Data Analysis with Scala and Spark | stackoverflow, timeusage, wikipedia |
-
-## Others
-
+| stackoverflow |  |
+| timeusage | |
+| wikipedia | |
