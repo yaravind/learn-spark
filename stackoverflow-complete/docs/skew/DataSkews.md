@@ -8,8 +8,8 @@
     - [Salting](#Salting)
         - [Without Salting](#WithoutSalting)
         - [With Salting](#WithSalting)
-            - [Salting - Replication factor of 50](#Salting with Replication factor of 50)
-            - [Salting - Replication factor of 150](#Salting with Replication factor of 150)
+            - [Salting - Replication factor of 50](#SaltingWithReplicationFactor50)
+            - [Salting - Replication factor of 150](#SaltingWithReplicationFactor150)
 4. [Reference](#Reference)
 
 ## Introduction
@@ -81,7 +81,7 @@ records of the same key should be co-located in the same partition)
 
 - `WhatIsTheAverageRevenueOfTheOrdersAppOptimized`
 
-##### Salting with Replication factor of 50
+##### SaltingWithReplicationFactor50
 
 ###### Job - Summary View
 
@@ -111,7 +111,7 @@ records of the same key should be co-located in the same partition)
 
 ![](./iteration1/skewed-spark-app-GC-redflag-optimize1.png)
 
-#### Salting with Replication factor of 150
+#### SaltingWithReplicationFactor150
 
 ###### Job - Summary View
 
