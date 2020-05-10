@@ -1,5 +1,19 @@
 # Skew
 
+## Table of Contents
+
+1. [Introduction](#Introduction)
+2. [Symptoms](#Symptoms)
+3. [Solutions](#third-example)
+    - [Salting](#Salting)
+        - [Without Salting](#Without salting)
+        - [With Salting](#With salting)
+            - [Salting - Replication factor of 50](#Salting with Replication factor of 50)
+            - [Salting - Replication factor of 150](#Salting with Replication factor of 150)
+4. [Reference](#Reference)
+
+## Introduction
+
 Data skew happens when each of the partitions have uneven distribution of data.
 
 > In statistical terms, data is skewed when mean, median and mode aren't equal to each 
@@ -21,7 +35,7 @@ records of the same key should be co-located in the same partition)
 
 ## Solutions
 
-### 1. Salting (Full or Partial)
+### Salting 
 
 #### Without salting
 
@@ -67,65 +81,65 @@ records of the same key should be co-located in the same partition)
 
 - `WhatIsTheAverageRevenueOfTheOrdersAppOptimized`
 
-##### Iteration 1 - Replication factor 50
+##### Salting with Replication factor of 50
 
 ###### Job - Summary View
 
-![]()
+![](./iteration1/skewed-spark-app-summary-optimize1.png)
 
 ###### Job - Details View
 
-![]()
+![](./iteration1/saprk-webui-jobs-view-optimize1.png)
 
 ###### SQL Query View
 
-docs/skew/spark-webui-sql-view.pdf
+[SQL](./iteration1/spark-webui-sql-view-optimize1.pdf)
 
 ###### Join/Shuffle Stage - Details View
 
-![]()
+![](./iteration1/stranger-or-skewed-task-0-optimize1.png)
 
 ###### Join/Shuffle Stage - Event Timeline View
 
-![]()
+![](./iteration1/strangler-or-skewed-task-1-optimize1.png)
 
 ###### Join/Shuffle Stage - Task View
 
-![]()
+![](./iteration1/strangler-or-skewed-task-2-optimize1.png)
 
 ###### Executor Memory
 
-![]()
+![](./iteration1/skewed-spark-app-GC-redflag-optimize1.png)
 
-#### Iteration 2 - Replication factor 150 
+#### Salting with Replication factor of 150
 
 ###### Job - Summary View
 
-![]()
+![](./iteration2/skewed-spark-app-summary-optimize2.png)
 
 ###### Job - Details View
 
-![]()
+![](./iteration2/saprk-webui-jobs-view-optimization2.png)
 
 ###### SQL Query View
 
-docs/skew/spark-webui-sql-view.pdf
+[SQL](./iteration2/spark-webui-sql-view-optimization2.pdf)
 
 ###### Join/Shuffle Stage - Details View
 
-![]()
+![](./iteration2/stranger-or-skewed-task-0-optimize2.png)
 
 ###### Join/Shuffle Stage - Event Timeline View
 
-![]()
+![](./iteration2/strangler-or-skewed-task-1-optimize2.png)
 
 ###### Join/Shuffle Stage - Task View
 
-![]()
+![](./iteration2/strangler-or-skewed-task-2-optimize2.png)
 
 ###### Executor Memory
 
-![]()
+![](./iteration2/skewed-spark-app-GC-redflag-optimized2.png)
 
 ## Reference
 
