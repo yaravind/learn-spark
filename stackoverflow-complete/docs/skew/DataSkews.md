@@ -39,7 +39,7 @@ records of the same key should be co-located in the same partition)
 
 ##### SQL Query View
 
-(spark-webui-sql-view.pdf)
+[SQL](spark-webui-sql-view.pdf)
 
 ##### Join/Shuffle Stage - Details View
 
