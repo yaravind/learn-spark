@@ -17,15 +17,45 @@ Data skew happens when each of the partitions have uneven distribution of data.
 records of the same key should be co-located in the same partition)
 
 - too many `null` values in a key
-- one key has very high cardinality. For e.g. one `product` is sold more than any other
-products
+- one key has very high cardinality. For e.g. one `product` is sold more than other products
 
-## Examples
+## Solutions
 
-### Salting (Full or Partial)
+### 1. Salting (Full or Partial)
 
 #### Without salting
-    - `WhatIsTheAverageRevenueOfTheOrdersApp` -
+
+##### Code
+
+`WhatIsTheAverageRevenueOfTheOrdersApp`
+
+##### Job - Summary View
+
+![](skewed-spark-app-summary.png)
+
+##### Job - Details View
+
+![](saprk-webui-jobs-view.png)
+
+##### SQL Query View
+
+(./spark-webui-sql-view.pdf)
+
+##### Join/Shuffle Stage - Details View
+
+![](strangler-or-skewed-task-0.png)
+
+##### Join/Shuffle Stage - Event Timeline View
+
+![](strangler-or-skewed-task-1.png)
+
+##### Join/Shuffle Stage - Task View
+
+![](strangler-or-skewed-task-2.png)
+
+##### Executor Memory
+
+![](skewed-spark-app-GC-redflag.png)
 
 #### With salting
 
@@ -39,9 +69,63 @@ products
 
 ##### Iteration 1 - Replication factor 50
 
+###### Job - Summary View
 
+![]()
+
+###### Job - Details View
+
+![]()
+
+###### SQL Query View
+
+docs/skew/spark-webui-sql-view.pdf
+
+###### Join/Shuffle Stage - Details View
+
+![]()
+
+###### Join/Shuffle Stage - Event Timeline View
+
+![]()
+
+###### Join/Shuffle Stage - Task View
+
+![]()
+
+###### Executor Memory
+
+![]()
 
 #### Iteration 2 - Replication factor 150 
+
+###### Job - Summary View
+
+![]()
+
+###### Job - Details View
+
+![]()
+
+###### SQL Query View
+
+docs/skew/spark-webui-sql-view.pdf
+
+###### Join/Shuffle Stage - Details View
+
+![]()
+
+###### Join/Shuffle Stage - Event Timeline View
+
+![]()
+
+###### Join/Shuffle Stage - Task View
+
+![]()
+
+###### Executor Memory
+
+![]()
 
 ## Reference
 
