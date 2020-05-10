@@ -30,6 +30,11 @@ products
 #### With salting
 
 - Had to increase the driver memory to `3G` in spark-shell to successfully run
+
+```
+./bin/spark-shell --driver-memory 3G
+```
+
 - `WhatIsTheAverageRevenueOfTheOrdersAppOptimized`
 
 ##### Iteration 1 - Replication factor 50

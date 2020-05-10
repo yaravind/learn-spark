@@ -21,8 +21,40 @@ object WhatIsTheAverageRevenueOfTheOrdersAppOptimized extends App with Logging {
   val orderDF = loadSales()
   val productDF = loadProducts()
 
+  logInfo("Q: What is the average revenue of the orders?")
   val result = run(spark)
+  logInfo("A: ")
   result.show()
+
+  logInfo("Q: What is the count of each of the products sold?")
+  val countResult = runCount(spark)
+  logInfo("A: ")
+  countResult.show()
+
+  println("Complete")
+
+  /**
+   * We need to handle the group level aggregation differently, by sub-selects
+   *
+   * @param spark
+   * @return
+   */
+  def runCount(spark: SparkSession): DataFrame = {
+    val sqlTxt =
+      """ SELECT key1, count(*)
+        | FROM (
+        |       SELECT split(fact.salted_key,"-")[0] AS key1
+        |       FROM orders_salted fact, products_salted dim
+        |       WHERE fact.salted_key = dim.salted_product_id
+        | )
+        | GROUP BY key1
+        | ORDER BY key1
+        |""".stripMargin
+
+    val result = spark.sql(sqlTxt)
+
+    result
+  }
 
   def run(spark: SparkSession): DataFrame = {
     val skewedSqlText =
@@ -41,7 +73,7 @@ object WhatIsTheAverageRevenueOfTheOrdersAppOptimized extends App with Logging {
     logInfo("Skewed keys")
     skewedKeys.foreach(k => logInfo("key: " + k))
 
-    val ReplicationFactor = 50
+    val ReplicationFactor = 150
     val skewedKeyColName = "product_id"
 
     val saltedProductsDF = replicateNonSkewedData(productDF, skewedKeyColName, skewedKeys, ReplicationFactor)(spark)
@@ -62,7 +94,7 @@ object WhatIsTheAverageRevenueOfTheOrdersAppOptimized extends App with Logging {
     val sqlText =
       """ SELECT avg(p.price * o.num_pieces_sold) as avg_revenue
         | FROM orders_salted o
-        | JOIN products_salted p ON p.salted_product_id = o.salted_key1
+        | JOIN products_salted p ON p.salted_product_id = o.salted_key
         |""".stripMargin
     val result = spark.sql(sqlText)
 
@@ -97,9 +129,9 @@ object WhatIsTheAverageRevenueOfTheOrdersAppOptimized extends App with Logging {
     saltedInputDF
   }
 
-  def saltSkewedData(inputDF: DataFrame, inputKeyColName: String, skewedKeys: Array[String], replicationFactor: Int)(spark: SparkSession): DataFrame = {
+  def saltSkewedData[T](inputDF: DataFrame, inputKeyColName: String, skewedKeys: Array[T], replicationFactor: Int)(spark: SparkSession): DataFrame = {
     val keyCol = inputDF(inputKeyColName)
-    val saltedInputDF = inputDF.withColumn("salted_key1",
+    val saltedInputDF = inputDF.withColumn("salted_key",
       when(
         keyCol.isInCollection(skewedKeys),
         concat(keyCol, lit("-"), round(rand() * (replicationFactor - 1), 0).cast(IntegerType))
