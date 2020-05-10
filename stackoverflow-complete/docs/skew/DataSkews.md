@@ -4,10 +4,10 @@
 
 1. [Introduction](#Introduction)
 2. [Symptoms](#Symptoms)
-3. [Solutions](#third-example)
+3. [Solutions](#Solutions)
     - [Salting](#Salting)
-        - [Without Salting](#Without salting)
-        - [With Salting](#With salting)
+        - [Without Salting](#WithoutSalting)
+        - [With Salting](#WithSalting)
             - [Salting - Replication factor of 50](#Salting with Replication factor of 50)
             - [Salting - Replication factor of 150](#Salting with Replication factor of 150)
 4. [Reference](#Reference)
@@ -37,7 +37,7 @@ records of the same key should be co-located in the same partition)
 
 ### Salting 
 
-#### Without salting
+#### WithoutSalting
 
 ##### Code
 
@@ -71,7 +71,7 @@ records of the same key should be co-located in the same partition)
 
 ![](skewed-spark-app-GC-redflag.png)
 
-#### With salting
+#### WithSalting
 
 - Had to increase the driver memory to `3G` in spark-shell to successfully run
 
