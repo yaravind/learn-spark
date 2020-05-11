@@ -1,7 +1,6 @@
 package com.aravind.oss.eg.spark.sales
 
 import com.aravind.oss.eg.spark.SparkAppUtil.{getClusterCfg, getSparkSession}
-import com.aravind.oss.eg.spark.sales.ProductSalesApp.args
 import org.apache.spark.sql.DataFrame
 
 object ProductSalesUtil {

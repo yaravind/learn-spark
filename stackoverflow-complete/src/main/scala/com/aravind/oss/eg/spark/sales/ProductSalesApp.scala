@@ -40,6 +40,7 @@ object ProductSalesApp extends App with Logging {
 
   val skewedData: Array[Row] = spark.sql(skewedSqlText).limit(1).collect()
 
+
   /**
    * Problem 4 Step 2 - What we want to do is:
    *  a. Duplicate the entries that we have in the dimension (PRODUCTS) table for the most common prod
