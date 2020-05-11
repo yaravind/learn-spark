@@ -1,4 +1,4 @@
-## Project - Stackoverflow
+# Project - Stackoverflow
 
 ## File Metadata
 
@@ -120,7 +120,7 @@ All timestamps are UTC, default format: `yyyy-MM-dd hh:mm:ss` (stored with milli
 
 #### Metric - Total posts
 
-**Total posts = 43,872,992**
+Total posts = 43,872,992
 
 #### Metric - Group by Post Type
 
@@ -164,8 +164,6 @@ mistakenly added the Tag to the top Answer: https://stackoverflow.com/questions/
  ```scala
  posts.filter("_Tags is not null AND _PostType = 'Answer'").show
  ```
-
----
 
 #### Question - Users who posted maximum number of questions 
 
