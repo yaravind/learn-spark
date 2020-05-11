@@ -35,6 +35,9 @@ records of the same key should be co-located in the same partition)
 
 ## Solutions
 
+> Databricks has a skew hint out of the box that cab avoid custom salting. Look at
+> Reference section.
+
 ### Salting 
 
 #### WithoutSalting
@@ -145,3 +148,5 @@ records of the same key should be co-located in the same partition)
 ## Reference
 
 - https://dataengi.com/2019/02/06/spark-data-skew-problem/
+- [Spark SQL hint](https://docs.databricks.com/delta/join-performance/skew-join.html#relation-columns-and-skew-values)
+- [DataFrame hint](https://kb.databricks.com/data/skew-hints-in-join.html)
