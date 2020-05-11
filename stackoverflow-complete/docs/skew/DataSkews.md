@@ -31,7 +31,7 @@ Data skew happens when each of the partitions have uneven distribution of data.
 records of the same key should be co-located in the same partition)
 
 - too many `null` values in a key
-    - [Preprocess](#Data Preprocess) the null values with some random id's and handle them in the application
+    - Preprocess the null values with some random id's and handle them in the application
 - one key has very high cardinality. For e.g. one `product` is sold more than other products
 
 ## Solutions
