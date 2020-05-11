@@ -31,14 +31,22 @@ Data skew happens when each of the partitions have uneven distribution of data.
 records of the same key should be co-located in the same partition)
 
 - too many `null` values in a key
+    - [Preprocess](#Data Preprocess) the null values with some random id's and handle them in the application
 - one key has very high cardinality. For e.g. one `product` is sold more than other products
 
 ## Solutions
 
-> Databricks has a skew hint out of the box that cab avoid custom salting. Look at
+> Databricks has a **skew** hint out of the box that cab avoid custom salting. Look at
 > Reference section.
 
+1. Data Preprocess
+2. Salting (Full & Partial)
+2. 
+
 ### Salting 
+
+> For skewed data, shuffled data can be compressed heavily due to the repetitive nature of data. 
+> Hence the overall disk IO/network transfer is also reduced. 
 
 #### WithoutSalting
 
@@ -148,5 +156,6 @@ records of the same key should be co-located in the same partition)
 ## Reference
 
 - https://dataengi.com/2019/02/06/spark-data-skew-problem/
+- https://dzone.com/articles/why-your-spark-apps-are-slow-or-failing-part-ii-da
 - [Spark SQL hint](https://docs.databricks.com/delta/join-performance/skew-join.html#relation-columns-and-skew-values)
 - [DataFrame hint](https://kb.databricks.com/data/skew-hints-in-join.html)
