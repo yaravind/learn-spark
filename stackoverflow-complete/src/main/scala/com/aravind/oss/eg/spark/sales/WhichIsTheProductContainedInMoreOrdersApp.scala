@@ -9,7 +9,7 @@ import org.apache.spark.sql.SparkSession
  * Problem 2: Which is the product contained in more orders?
  */
 object WhichIsTheProductContainedInMoreOrdersApp extends App with Logging {
-  val spark = getSparkSession("HowManyProductsHaveBeenSoldAtLeastOnceApp", getClusterCfg(args))
+  val spark = getSparkSession("WhichIsTheProductContainedInMoreOrdersApp", getClusterCfg(args))
   val orderDF = loadSales()
   orderDF.show(5)
 

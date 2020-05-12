@@ -2,11 +2,13 @@
 
 ## Projects
 
-|#|Project|What you will learn?|
-|-----|----|-------|
-|1|[Word Count](./docs/projects/WordCount.md)|Solve the same problem with different Spark API|
-|2|[Sales Analytics](./docs/projects/Sales.md) | Identify and fix data Skews|
-|3|[Stackoverflow Analytics](./docs/projects/Stackoverflow.md)|???|
+|#|Project|What you will learn?|Status|
+|-----|----|-------|-------|
+|1|[Word Count](./docs/projects/WordCount.md)|Solve the same problem with different Spark API|Complete|
+|2|[Sales Analytics](./docs/projects/Sales.md) |Identify and fix data Skew, Salting|Complete|
+|3|[Users & Departments]()|Identify and fix data Skew, Repartition| |TODO|
+|3|[Stackoverflow Analytics](./docs/projects/Stackoverflow.md)| |TODO|
+|4|[Protect Data Cardinality](https://www.linkedin.com/pulse/protecting-your-data-cardinality-michael-spector/)| |TODO|
 
 ## Notes
 

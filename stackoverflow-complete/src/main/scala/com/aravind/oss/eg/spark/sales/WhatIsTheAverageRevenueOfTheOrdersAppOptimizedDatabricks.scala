@@ -17,7 +17,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  * </p>
  */
 object WhatIsTheAverageRevenueOfTheOrdersAppOptimizedDatabricks extends App with Logging {
-  val spark = getSparkSession("HowManyProductsHaveBeenSoldAtLeastOnceApp", getClusterCfg(args))
+  val spark = getSparkSession("WhatIsTheAverageRevenueOfTheOrdersAppOptimizedDatabricks", getClusterCfg(args))
   val orderDF = loadSales()
   val productDF = loadProducts()
 

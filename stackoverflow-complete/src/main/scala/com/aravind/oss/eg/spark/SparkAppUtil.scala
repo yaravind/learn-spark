@@ -12,4 +12,10 @@ object SparkAppUtil {
   def getClusterCfg(args: Array[String]): String = {
     if (!args.isEmpty && args.length > 1) args(1) else "local[*]"
   }
+
+  def activeExecutors(spark: SparkSession): Seq[String] = {
+    val allExecutors = spark.sparkContext.getExecutorMemoryStatus.map(_._1)
+    val driverHost: String = spark.sparkContext.getConf.get("spark.driver.host")
+    allExecutors.filter(!_.split(":")(0).equals(driverHost)).toList
+  }
 }

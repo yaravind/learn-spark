@@ -9,7 +9,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  * Problem 3: How many distinct products have been sold in each day?
  */
 object HowManyDistinctProductsHaveBeenSoldInEachDayApp extends App with Logging {
-  val spark = getSparkSession("HowManyProductsHaveBeenSoldAtLeastOnceApp", getClusterCfg(args))
+  val spark = getSparkSession("HowManyDistinctProductsHaveBeenSoldInEachDayApp", getClusterCfg(args))
 
   val orderDF = loadSales()
 

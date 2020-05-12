@@ -9,7 +9,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  * Problem 4: What is the average revenue of the orders?
  */
 object WhatIsTheAverageRevenueOfTheOrdersApp extends App with Logging {
-  val spark = getSparkSession("HowManyProductsHaveBeenSoldAtLeastOnceApp", getClusterCfg(args))
+  val spark = getSparkSession("WhatIsTheAverageRevenueOfTheOrdersApp", getClusterCfg(args))
   val orderDF = loadSales()
   val productDF = loadProducts()
 
