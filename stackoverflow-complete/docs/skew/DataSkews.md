@@ -14,7 +14,8 @@
 
 ## Introduction
 
-Data skew happens when each of the partitions have uneven distribution of data.
+Data skew happens when each of the partitions have uneven distribution of data i.e. non-uniform
+data distribution between workers fo spark app.
 
 > In statistical terms, data is skewed when mean, median and mode aren't equal to each 
 > other, as in the case with normal distribution.
@@ -22,7 +23,7 @@ Data skew happens when each of the partitions have uneven distribution of data.
 ## Symptoms
 
 - Inconsistent processing times
-- Strangler/frozen stages and tasks
+- Straggler/frozen stages and tasks
 - Low CPU utilization
 - OOM errors
 
@@ -40,8 +41,14 @@ records of the same key should be co-located in the same partition)
 > Reference section.
 
 1. Data Preprocess
+    - Repartition
 2. Salting (Full & Partial)
-2. 
+3. Isolated Map Side Join
+4. [Iterative Broadcast Join](https://www.youtube.com/watch?v=6zg7NTw-kTQ)
+
+### Repartition
+
+TODO
 
 ### Salting 
 
@@ -157,5 +164,6 @@ records of the same key should be co-located in the same partition)
 
 - https://dataengi.com/2019/02/06/spark-data-skew-problem/
 - https://dzone.com/articles/why-your-spark-apps-are-slow-or-failing-part-ii-da
+- [Solution alternatives](https://bigdatacraziness.wordpress.com/2018/01/05/oh-my-god-is-my-data-skewed/)
 - [Spark SQL hint](https://docs.databricks.com/delta/join-performance/skew-join.html#relation-columns-and-skew-values)
 - [DataFrame hint](https://kb.databricks.com/data/skew-hints-in-join.html)
