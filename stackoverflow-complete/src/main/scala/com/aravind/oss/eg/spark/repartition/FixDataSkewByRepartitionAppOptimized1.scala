@@ -1,31 +1,30 @@
 package com.aravind.oss.eg.spark.repartition
 
 import com.aravind.oss.Logging
-import com.aravind.oss.eg.spark.SparkAppUtil.{getClusterCfg, getSparkSession}
+import com.aravind.oss.eg.spark.SparkAppUtil.{activeExecutorCount, getClusterCfg, getSparkSession}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
- * Demonstrates data skew.
- * Takes around 4 minutes to complete as this is run by a single thread.
+ * Demonstrates using repartitioning technique to fix data skew.
+ * Completes with in 30 secs.
+ * Reference: https://github.com/dataengi/spark-challenges/blob/master/src/main/scala/DataSkew.scala
  */
-object FixDataSkewByRepartitionApp extends App with Logging {
+object FixDataSkewByRepartitionAppOptimized1 extends App with Logging {
   val spark = getSparkSession("FixDataSkewByRepartitionApp", getClusterCfg(args))
 
   val userDF = spark.read.option("header", "true").csv("datasets/users.csv.gz")
-  userDF.createOrReplaceTempView("users")
-  logInfo("Schema - USERS")
-  userDF.printSchema()
-  logInfo("userDF num partitions: " + userDF.rdd.getNumPartitions)
-  userDF.show(3)
-  logInfo("User count: " + userDF.count())
+  logInfo("userDF num partitions (BEFORE): " + userDF.rdd.getNumPartitions)
+
+  // Change 1: ********* Repartition
+  val MultiplicationFactor = 2
+  val userDFOptimized = userDF.repartition(activeExecutorCount(spark) * MultiplicationFactor)
+  userDFOptimized.createOrReplaceTempView("users")
+  logInfo("userDF num partitions (AFTER): " + userDFOptimized.rdd.getNumPartitions)
 
   val deptDF = spark.read.option("header", "true").csv("datasets/depts.csv.gz")
+  // Change 2: ********* sort
+  val deptDFOptimized = deptDF.sort("id", "assigned_date", "company_id", "factory_id")
   deptDF.createOrReplaceTempView("depts")
-  logInfo("Schema - DEPARTMENTS")
-  deptDF.printSchema()
-  logInfo("deptDF num partitions: " + deptDF.rdd.getNumPartitions)
-  deptDF.show(3)
-  logInfo("Department count: " + deptDF.count())
 
   val userCountByDept = run(spark)
 

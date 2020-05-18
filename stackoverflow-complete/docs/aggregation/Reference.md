@@ -1,6 +1,6 @@
 # Aggregations
 
-Three types
+Spark SQL supports 3 execution strategies or Operators
 
 1. HashAggregation
     - Faster
@@ -25,3 +25,9 @@ Three types
 ## SortAggregation
 
 ![SortAggregation](./sort.png)
+
+## Reference
+
+- [Hasing is Sorting](https://people.csail.mit.edu/jshun/6886-s19/lectures/lecture12-2.pdf)
+- [Selecting one of 3 Aggregation Physical operators](https://www.waitingforcode.com/apache-spark-sql/aggregations-execution-apache-spark-sql/read)
+- [The case for ObjectHashAggregateExec](https://issues.apache.org/jira/secure/attachment/12834260/%5BDesign%20Doc%5D%20Support%20for%20Arbitrary%20Aggregation%20States.pdf)

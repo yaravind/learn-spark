@@ -14,8 +14,17 @@ object SparkAppUtil {
   }
 
   def activeExecutors(spark: SparkSession): Seq[String] = {
+    //allExecutors: Iterable[String] = List(192.168.1.228:64834)
     val allExecutors = spark.sparkContext.getExecutorMemoryStatus.map(_._1)
+
+    //driverHost: String = 192.168.1.228
     val driverHost: String = spark.sparkContext.getConf.get("spark.driver.host")
+
+    //Filter out driver from executor list.
     allExecutors.filter(!_.split(":")(0).equals(driverHost)).toList
+  }
+
+  def activeExecutorCount(spark: SparkSession): Int = {
+    activeExecutors(spark).size
   }
 }
