@@ -12,11 +12,13 @@
 
 ## Notes
 
-1. [Data Skews](../stackoverflow-complete/docs/skew/DataSkews.md)
+1. [Data Skews](docs/skew/Reference.md)
 2. [Performance Tuning](../stackoverflow-complete/docs/PerfTuning.md)
-3. [Task Serialization](../stackoverflow-complete/docs/serialize/Serialization.md)
-3. [Garbage Collection](../stackoverflow-complete/docs/garbage-collection/Gc.md)
+3. [Task Serialization](docs/serialize/Reference.md)
+3. [Garbage Collection](docs/garbage-collection/Reference.md)
 
 ## References
+
+Shuffling
 
 - http://hydronitrogen.com/apache-spark-shuffles-explained-in-depth.html
