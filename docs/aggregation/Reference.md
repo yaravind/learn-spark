@@ -16,15 +16,15 @@ Spark SQL supports 3 execution strategies or Operators
 
 ## Introduction
 
-![Motivation](./motivation.png)
+![Motivation](motivation.png)
 
 ## HashAggregation
 
-![HasAggregation](./hash.png)
+![HasAggregation](hash.png)
 
 ## SortAggregation
 
-![SortAggregation](./sort.png)
+![SortAggregation](sort.png)
 
 ## Reference
 

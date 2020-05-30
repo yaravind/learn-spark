@@ -59,7 +59,7 @@ TODO
 
 ##### Code
 
-[WhatIsTheAverageRevenueOfTheOrdersApp](../../src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersApp.scala)
+[WhatIsTheAverageRevenueOfTheOrdersApp](../../stackoverflow-complete/src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersApp.scala)
 
 ##### Job - Summary View
 
@@ -98,67 +98,67 @@ TODO
 ```
 ##### Code
 
-[WhatIsTheAverageRevenueOfTheOrdersAppOptimized](../../src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersAppOptimized.scala)
+[WhatIsTheAverageRevenueOfTheOrdersAppOptimized](../../stackoverflow-complete/src/main/scala/com/aravind/oss/eg/spark/sales/WhatIsTheAverageRevenueOfTheOrdersAppOptimized.scala)
 
 ##### SaltingWithReplicationFactor50
 
 ###### Job - Summary View
 
-![](./iteration1/skewed-spark-app-summary-optimize1.png)
+![](iteration1/skewed-spark-app-summary-optimize1.png)
 
 ###### Job - Details View
 
-![](./iteration1/saprk-webui-jobs-view-optimize1.png)
+![](iteration1/saprk-webui-jobs-view-optimize1.png)
 
 ###### SQL Query View
 
-[SQL](./iteration1/spark-webui-sql-view-optimize1.pdf)
+[SQL](iteration1/spark-webui-sql-view-optimize1.pdf)
 
 ###### Join/Shuffle Stage - Details View
 
-![](./iteration1/stranger-or-skewed-task-0-optimize1.png)
+![](iteration1/stranger-or-skewed-task-0-optimize1.png)
 
 ###### Join/Shuffle Stage - Event Timeline View
 
-![](./iteration1/strangler-or-skewed-task-1-optimize1.png)
+![](iteration1/strangler-or-skewed-task-1-optimize1.png)
 
 ###### Join/Shuffle Stage - Task View
 
-![](./iteration1/strangler-or-skewed-task-2-optimize1.png)
+![](iteration1/strangler-or-skewed-task-2-optimize1.png)
 
 ###### Executor Memory
 
-![](./iteration1/skewed-spark-app-GC-redflag-optimize1.png)
+![](iteration1/skewed-spark-app-GC-redflag-optimize1.png)
 
 #### SaltingWithReplicationFactor150
 
 ###### Job - Summary View
 
-![](./iteration2/skewed-spark-app-summary-optimize2.png)
+![](iteration2/skewed-spark-app-summary-optimize2.png)
 
 ###### Job - Details View
 
-![](./iteration2/saprk-webui-jobs-view-optimization2.png)
+![](iteration2/saprk-webui-jobs-view-optimization2.png)
 
 ###### SQL Query View
 
-[SQL](./iteration2/spark-webui-sql-view-optimization2.pdf)
+[SQL](iteration2/spark-webui-sql-view-optimization2.pdf)
 
 ###### Join/Shuffle Stage - Details View
 
-![](./iteration2/stranger-or-skewed-task-0-optimize2.png)
+![](iteration2/stranger-or-skewed-task-0-optimize2.png)
 
 ###### Join/Shuffle Stage - Event Timeline View
 
-![](./iteration2/strangler-or-skewed-task-1-optimize2.png)
+![](iteration2/strangler-or-skewed-task-1-optimize2.png)
 
 ###### Join/Shuffle Stage - Task View
 
-![](./iteration2/strangler-or-skewed-task-2-optimize2.png)
+![](iteration2/strangler-or-skewed-task-2-optimize2.png)
 
 ###### Executor Memory
 
-![](./iteration2/skewed-spark-app-GC-redflag-optimized2.png)
+![](iteration2/skewed-spark-app-GC-redflag-optimized2.png)
 
 ## Reference
 
