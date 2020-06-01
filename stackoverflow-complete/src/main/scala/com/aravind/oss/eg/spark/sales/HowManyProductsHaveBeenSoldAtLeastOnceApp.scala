@@ -6,6 +6,7 @@ import com.aravind.oss.eg.spark.sales.ProductSalesUtil.{loadProducts, loadSales}
 import org.apache.spark.sql.SparkSession
 
 /**
+ * TODO: replace tableExists with requireTableExists
  * Problem 1: How many products have been sold at least once?
  */
 object HowManyProductsHaveBeenSoldAtLeastOnceApp extends App with Logging {
