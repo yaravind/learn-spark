@@ -1,0 +1,255 @@
+Fit for cluster size (K): 3
+Run: 1
+Seed: 98
+Within Set Sum of Squared Errors: 27924.569386362753
+Cluster centers:
+Cluster Center 0: [-0.7141814317618062,-0.19798460395810444,0.3600638763470465]
+Cluster Center 1: [-0.8427370232348932,2.088039268480961,0.3412415902377899]
+Cluster Center 2: [0.8665655715310359,-0.43376735557953605,-0.4126103873057646]
+Number of clusters: 3
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 7421
+Cluser: 1, # of members: 2474
+Cluser: 2, # of members: 8522
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         2|
+|         80|         1|
+|         90|         1|
+|        120|         2|
+|        130|         2|
+|        160|         2|
+|        190|         2|
+|        220|         2|
+|        230|         2|
+|        240|         0|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a  |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|0      |1    |480.7  |3664 |1    |2.2  |5    |5.0  |82.55|4500.0 |
+|1      |1    |341.67 |2822 |6    |8.91 |45   |6.75 |70.62|3043.75|
+|2      |2    |2190.17|4014 |1    |1.51 |9    |5.0  |32.51|1807.0 |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+
+Within Set Sum of Squared Errors: 27924.569386362753
+Silhouette with squared euclidean distance = 0.4748442029984294
+Run: 2
+Seed: 43
+Within Set Sum of Squared Errors: 37652.56662189411
+Cluster centers:
+Cluster Center 0: [0.8609834397566264,-0.4336775631486417,-0.41584508382558033]
+Cluster Center 1: [-0.7462263727304798,0.37587440122481586,0.36041874232642784]
+Number of clusters: 3
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 8535
+Cluser: 1, # of members: 9882
+Cluser: 2, # of members: 0
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         0|
+|         80|         1|
+|         90|         1|
+|        120|         0|
+|        130|         0|
+|        160|         0|
+|        190|         0|
+|        220|         0|
+|        230|         0|
+|        240|         1|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+|0      |2    |2186.87|4014 |1    |1.51 |9    |5.0  |32.34|1807.0|
+|1      |1    |446.49 |3664 |1    |3.88 |45   |5.0  |79.78|4500.0|
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+
+Within Set Sum of Squared Errors: 37652.56662189411
+Silhouette with squared euclidean distance = 0.43054172260779566
+Run: 3
+Seed: 3
+Within Set Sum of Squared Errors: 27924.569386362753
+Cluster centers:
+Cluster Center 0: [-0.7141814317618062,-0.19798460395810444,0.3600638763470465]
+Cluster Center 1: [-0.8427370232348932,2.088039268480961,0.3412415902377899]
+Cluster Center 2: [0.8665655715310359,-0.43376735557953605,-0.4126103873057646]
+Number of clusters: 3
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 7421
+Cluser: 1, # of members: 2474
+Cluser: 2, # of members: 8522
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         2|
+|         80|         1|
+|         90|         1|
+|        120|         2|
+|        130|         2|
+|        160|         2|
+|        190|         2|
+|        220|         2|
+|        230|         2|
+|        240|         0|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a  |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|0      |1    |480.7  |3664 |1    |2.2  |5    |5.0  |82.55|4500.0 |
+|1      |1    |341.67 |2822 |6    |8.91 |45   |6.75 |70.62|3043.75|
+|2      |2    |2190.17|4014 |1    |1.51 |9    |5.0  |32.51|1807.0 |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+
+Within Set Sum of Squared Errors: 27924.569386362753
+Silhouette with squared euclidean distance = 0.4748442029984294
+numClusters: List(), silhouetteAvgScores: List()
+
+Fit for cluster size (K): 4
+Run: 1
+Seed: 54
+Within Set Sum of Squared Errors: 24226.486113927767
+Cluster centers:
+Cluster Center 0: [-0.7141814317618062,-0.19798460395810444,0.3600638763470465]
+Cluster Center 1: [-0.8427370232348932,2.088039268480961,0.3412415902377899]
+Cluster Center 2: [0.35678463737577565,-0.4127735583688451,-0.8939074628951671]
+Cluster Center 3: [1.3162265810310594,-0.45228529419691643,0.011925946595313392]
+Number of clusters: 4
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 7421
+Cluser: 1, # of members: 2474
+Cluser: 2, # of members: 3994
+Cluser: 3, # of members: 4528
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         3|
+|         80|         1|
+|         90|         1|
+|        120|         2|
+|        130|         3|
+|        160|         3|
+|        190|         3|
+|        220|         2|
+|        230|         3|
+|        240|         0|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a  |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|0      |1    |480.7  |3664 |1    |2.2  |5    |5.0  |82.55|4500.0 |
+|1      |1    |341.67 |2822 |6    |8.91 |45   |6.75 |70.62|3043.75|
+|2      |2    |1638.88|3691 |1    |1.57 |9    |5.0  |19.9 |50.0   |
+|3      |1268 |2676.46|4014 |1    |1.45 |8    |8.0  |43.63|1807.0 |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+
+Within Set Sum of Squared Errors: 24226.486113927767
+Silhouette with squared euclidean distance = 0.37321735604760325
+Run: 2
+Seed: 51
+Within Set Sum of Squared Errors: 37652.56662189411
+Cluster centers:
+Cluster Center 0: [0.8609834397566264,-0.4336775631486417,-0.41584508382558033]
+Cluster Center 1: [-0.7462263727304798,0.37587440122481586,0.36041874232642784]
+Number of clusters: 4
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 8535
+Cluser: 1, # of members: 9882
+Cluser: 2, # of members: 0
+Cluser: 3, # of members: 0
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         0|
+|         80|         1|
+|         90|         1|
+|        120|         0|
+|        130|         0|
+|        160|         0|
+|        190|         0|
+|        220|         0|
+|        230|         0|
+|        240|         1|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+|0      |2    |2186.87|4014 |1    |1.51 |9    |5.0  |32.34|1807.0|
+|1      |1    |446.49 |3664 |1    |3.88 |45   |5.0  |79.78|4500.0|
++-------+-----+-------+-----+-----+-----+-----+-----+-----+------+
+
+Within Set Sum of Squared Errors: 37652.56662189411
+Silhouette with squared euclidean distance = 0.43054172260779566
+Run: 3
+Seed: 45
+Within Set Sum of Squared Errors: 27924.569386362753
+Cluster centers:
+Cluster Center 0: [-0.7141814317618062,-0.19798460395810444,0.3600638763470465]
+Cluster Center 1: [-0.8427370232348932,2.088039268480961,0.3412415902377899]
+Cluster Center 2: [0.8665655715310359,-0.43376735557953605,-0.4126103873057646]
+Number of clusters: 4
+Number of iterations: 20
+Frequency (or number of data points) of each cluster:
+Cluser: 0, # of members: 7421
+Cluser: 1, # of members: 2474
+Cluser: 2, # of members: 8522
+Cluser: 3, # of members: 0
+Prediction for first 10 customers:
++-----------+----------+
+|customer_id|prediction|
++-----------+----------+
+|         10|         2|
+|         80|         1|
+|         90|         1|
+|        120|         2|
+|        130|         2|
+|        160|         2|
+|        190|         2|
+|        220|         2|
+|        230|         2|
+|        240|         0|
++-----------+----------+
+
+Profile of each segment:
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|segment|min_r|avg_r  |max_r|min_f|avg_f|max_f|min_a|avg_a|max_a  |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+|0      |1    |480.7  |3664 |1    |2.2  |5    |5.0  |82.55|4500.0 |
+|1      |1    |341.67 |2822 |6    |8.91 |45   |6.75 |70.62|3043.75|
+|2      |2    |2190.17|4014 |1    |1.51 |9    |5.0  |32.51|1807.0 |
++-------+-----+-------+-----+-----+-----+-----+-----+-----+-------+
+
+Within Set Sum of Squared Errors: 27924.569386362753
+Silhouette with squared euclidean distance = 0.4748442029984294
+numClusters: List(), silhouetteAvgScores: List()
+result: List()
++---+---+
+|_1 |_2 |
++---+---+
++---+---+
+
+11 mins.
+678 secs.
+4. Segmentation summary
