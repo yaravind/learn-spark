@@ -76,3 +76,8 @@ ehthumbs.db
 Thumbs.db
 !/docs/
 spark-warehouse/
+/.run/
+/datasets/renconf/
+/datasets/rendata/
+/src/main/scala/com/aravind/oss/eg/spark/renaissance/
+/out/
