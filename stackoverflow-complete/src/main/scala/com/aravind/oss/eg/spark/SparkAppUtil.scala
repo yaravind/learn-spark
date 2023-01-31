@@ -10,7 +10,7 @@ object SparkAppUtil {
   }
 
   def getClusterCfg(args: Array[String]): String = {
-    if (!args.isEmpty && args.length > 1) args(1) else "local[*]"
+    if (!args.isEmpty && args.length >= 1) args(1) else "local[*]"
   }
 
   def activeExecutors(spark: SparkSession): Seq[String] = {

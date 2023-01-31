@@ -2,7 +2,15 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/data/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/notebooks/foundation-marketing-analytics/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/stackoverflow-complete/.idea/codeStyles" />
+      <excludeFolder url="file://$MODULE_DIR$/stackoverflow-complete/.idea/dictionaries" />
+      <excludeFolder url="file://$MODULE_DIR$/stackoverflow-complete/.idea/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/stackoverflow-complete/spark-warehouse" />
+      <excludeFolder url="file://$MODULE_DIR$/stackoverflow-complete/target" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-sdk-2.11.12" level="application" />
