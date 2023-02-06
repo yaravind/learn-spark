@@ -15,17 +15,25 @@
 ## Notes
 
 1. [Data Skews](../docs/skew/Reference.md)
+2. [Repartition](../docs/repartition/Reference.md)
 2. [Performance Tuning](../docs/PerfTuning.md)
 3. [Task Serialization](../docs/serialize/Reference.md)
 3. [Garbage Collection](../docs/garbage-collection/Reference.md)
 
-#### 3 Spark SQL function types
+### 3 Spark SQL function types
 
 | # | Name| Input| Output| Examples|
 |---|-----|------|-------|---------|
 |1| UDF or built-in functions|**Single** row | Single return value for *input row*| `round`, `substr`|
 |2| Aggregate functions| **Group** of rows| Single return value for for *every group*| `avg`, `min` |
 |3| Window functions| **Group** of rows| Single value for every *input row*| ranking etc. |
+
+### Additional Joins
+
+- Point-in-time join
+- Range join
+- Multi-dimensional index
+Reference: https://www.waitingforcode.com/apache-spark/apache-spark-you-dont-know-it/read
 
 ## References
 
