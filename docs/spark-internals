@@ -13,3 +13,5 @@ reducing the amount of data that needs to be read & processed.
 - This can be very valuable for improving query performance & reducing I/O operations when dealing with large-scale data.
 
 Using these statistics together with Hudi's robust multi-modal subsystem can provides significant edge in query performance.
+
+![bloom filter](bloom-filter-spark.jpeg)
