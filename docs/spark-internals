@@ -1,0 +1,15 @@
+## Bloom Filter Data Structure.
+
+A Bloom filter is a probabilistic data structure that allows you to identify whether an item belong to a data set or not. 
+
+- It either outputs: "definitely not present" or "maybe present" for every data search.
+- It can return false positive matches (says an element is in the set when it isn't), but never false negatives (if it says an element is not in the set, it definitely isn't).
+- Bloom filters uses multiple hash functions to map elements to a fixed-size array of bits, which makes it space efficient as compared to say a list.
+
+They are used widely in database systems to reduce expensive disk lookups. Coming to datalake, we can use bloom filters to efficiently skip over large portions of Parquet files that are irrelevant to our query, 
+reducing the amount of data that needs to be read & processed.
+
+- It is adapted by lakehouse table formats such as Delta and Apache Hudi to skip non-relevant row groups from data files. 
+- This can be very valuable for improving query performance & reducing I/O operations when dealing with large-scale data.
+
+Using these statistics together with Hudi's robust multi-modal subsystem can provides significant edge in query performance.
