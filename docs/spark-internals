@@ -14,4 +14,4 @@ reducing the amount of data that needs to be read & processed.
 
 Using these statistics together with Hudi's robust multi-modal subsystem can provides significant edge in query performance.
 
-![bloom filter](bloom-filter-spark.jpeg)
+![bloom filter](./bloom-filter-spark.jpeg)
