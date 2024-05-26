@@ -1,3 +1,26 @@
+# Performance Tuning
+
+## Training
+
+1. [Spark Query Plans](https://www.youtube.com/watch?v=KnUXztKueMU)
+2. [Spark DAGs](https://www.youtube.com/watch?v=O_45zAz1OGk)
+3. [Spark Memory Management](https://www.youtube.com/watch?v=sXL1qgrPysg)
+4. [Spark Executor Tuning](https://www.youtube.com/watch?v=mA96gUESVZc)
+5. [Shuffle Partitions](https://www.youtube.com/watch?v=q1LtBU_ca20)
+6. [Data Partitioning](https://www.youtube.com/watch?v=fZndmQasykk)
+7. [Bucketing](https://www.youtube.com/watch?v=1kWl6d1yeKA)
+8. [Caching](https://www.youtube.com/watch?v=FujwRYkBwM4)
+9. [Data Skew](https://www.youtube.com/watch?v=9Ss-_y7njKE)
+10. [Salting](https://www.youtube.com/watch?v=rZGsc5y8AQk)
+11. [AQE & Broadcast Joins](https://www.youtube.com/watch?v=bRjVa7MgsBM)
+12. [Dynamic Partition Pruning](https://www.youtube.com/watch?v=s8Z8Gex7VFw)
+
+[Link to](https://github.com/afaqueahmad7117/spark-experiments) code repo for above training.
+
+## Examples
+
+### Example 1
+
 Cluster
 
 - Number of data-nodes: 12
