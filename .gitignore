@@ -43,3 +43,4 @@ ipython_config.py
 
 !/notebooks/.ipynb_checkpoints/
 /.idea/codeStyles/Project.xml
+/docs/.idea/
