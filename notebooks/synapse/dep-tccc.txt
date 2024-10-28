@@ -1,0 +1,1 @@
+file:/usr/lib/library-manager/bin/libraries/scala/tccc-azure-data-utils-1.0-SNAPSHOT-uber8.jar

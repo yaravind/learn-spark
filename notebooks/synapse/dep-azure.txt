@@ -1,0 +1,11 @@
+file:/usr/lib/library-manager/bin/libraries/scala/tccc-azure-data-utils-1.0-SNAPSHOT-uber8.jar
+file:/opt/spark/jars/azure-storage-7.0.1.jar
+file:/opt/spark/jars/azure-eventhubs-3.3.0.jar
+file:/opt/spark/jars/azure-data-lake-store-sdk-2.3.9.jar
+file:/opt/spark/jars/hadoop-azure-datalake-3.3.4.5.2.20240522.3.jar
+file:/opt/spark/jars/azure-eventhubs-spark_2.12-2.3.22.jar
+file:/opt/spark/jars/azure-synapse-ml-pandas_2.12-0.1.1.jar
+file:/opt/spark/jars/azure-keyvault-core-1.0.0.jar
+file:/opt/spark/jars/hadoop-azureml-1.0-fs.jar
+file:/opt/spark/jars/azure-synapse-ml-predict_2.12-1.0.jar
+file:/opt/spark/jars/hadoop-azure-3.3.4.5.2.20240522.3.jar

@@ -1,0 +1,15 @@
+file:/opt/spark/jars/hadoop-azure-datalake-3.3.4.5.4.20240830.3.jar
+file:/opt/spark/jars/azure-storage-common-12.24.3.jar
+file:/opt/spark/jars/azure-storage-internal-avro-12.10.3.jar
+file:/opt/spark/jars/azure-eventhubs-spark_2.12-2.3.22.jar
+file:/opt/spark/jars/hadoop-azureml-1.0-fs.jar
+file:/opt/spark/jars/azure-core-1.47.0.jar
+file:/opt/spark/jars/hadoop-azure-3.3.4.5.4.20240830.3.jar
+file:/opt/spark/jars/azure-synapse-ml-pandas_2.12-0.1.1.jar
+file:/opt/spark/jars/azure-data-lake-store-sdk-2.3.9.jar
+file:/opt/spark/jars/azure-json-1.1.0.jar
+file:/opt/spark/jars/azure-keyvault-core-1.0.0.jar
+file:/opt/spark/jars/azure-eventhubs-3.3.0.jar
+file:/opt/spark/jars/azure-storage-blob-12.25.3.jar
+file:/opt/spark/jars/azure-storage-7.0.1.jar
+file:/opt/spark/jars/azure-core-http-netty-1.14.1.jar

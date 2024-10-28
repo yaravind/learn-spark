@@ -1,0 +1,3 @@
+file:/usr/lib/dw-connector/fabric/sqlanalyticsconnector-fabric-3.5.1-1.0.10.jar
+file:/usr/lib/dw-connector/fabric/config-1.3.4.jar
+file:/usr/lib/dw-connector/fabric/mssql-jdbc-12.4.2.jre8.jar

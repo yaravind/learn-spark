@@ -1,0 +1,9 @@
+file:/opt/spark/jars/synapseml-lightgbm_2.12-1.0.4-spark3.5.jar
+file:/opt/spark/jars/synapseml-opencv_2.12-1.0.4-spark3.5.jar
+file:/opt/spark/jars/spark-kusto-synapse-connector_3.5_2.12-1.5.1.jar
+file:/opt/spark/jars/azure-synapse-ml-pandas_2.12-0.1.1.jar
+file:/opt/spark/jars/synapseml-internal_2.12-1.0.4.0-spark3.5.jar
+file:/opt/spark/jars/synapseml-cognitive_2.12-1.0.4-spark3.5.jar
+file:/opt/spark/jars/synapseml-core_2.12-1.0.4-spark3.5.jar
+file:/opt/spark/jars/synapseml-deep-learning_2.12-1.0.4-spark3.5.jar
+file:/opt/spark/jars/synapseml-vw_2.12-1.0.4-spark3.5.jar
